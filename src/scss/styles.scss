@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  overflow: hidden;
+
+  #world {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(#e4e0ba, #f7d9aa);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    z-index: 1;
+    font-size: 1.15rem;
+  }
+
+  #game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #titlu {
+    line-height: 80px;
+    font-size: 60px;
+    margin-bottom: 50px;
+  }
+
+  #startjoc {
+    height: 100px;
+    width: 200px;
+    border-radius: 20px;
+    padding: 5px;
+    line-height: 50px;
+    font-size: 30px;
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+}
