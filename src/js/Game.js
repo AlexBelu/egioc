@@ -1,10 +1,10 @@
 const THREE = require("three");
 const Time = require("three-time");
-import { TweenMax } from "gsap/TweenMax";
+import {TweenMax} from "gsap/TweenMax";
 
 import colors from "./Constants/colors";
 import keys from "./Constants/keys";
-import { rand } from "./Utils";
+import {rand} from "./Utils";
 
 import Sea from "./Elements/Sea";
 import Sky from "./Elements/Sky";
@@ -148,7 +148,7 @@ export default class Game {
 
       // Activate the anti-aliasing; this is less performant,
       // but, as our project is low-poly based, it should be fine :)
-      antialias: true
+      antialias: true,
     });
 
     // Define the size of the renderer; in this case,
@@ -216,7 +216,7 @@ export default class Game {
 
   createSea() {
     this.sea = new Sea({
-      seaColor: colors.blue
+      seaColor: colors.blue,
     });
 
     // push it a little bit at the bottom of the scene
@@ -228,7 +228,7 @@ export default class Game {
 
   createSky() {
     this.sky = new Sky({
-      cloudColor: colors.white
+      cloudColor: colors.white,
     });
     this.sky.mesh.position.y = -600;
     this.scene.add(this.sky.mesh);
@@ -242,7 +242,7 @@ export default class Game {
     const h = rand(100, 175);
 
     for (let i = 0; i <= totalgems; i++) {
-      const gem = new Gem({ gemColor: colors.red, particleColor: colors.red });
+      const gem = new Gem({gemColor: colors.red, particleColor: colors.red});
 
       const a = stepAngle * i;
 
@@ -271,7 +271,7 @@ export default class Game {
       bodyColor: colors.brown,
       faceColor: colors.pink,
       hairColor: colors.brown,
-      glassColor: colors.brown
+      glassColor: colors.brown,
     });
 
     this.airplane.mesh.scale.set(0.25, 0.25, 0.25);
@@ -301,13 +301,13 @@ export default class Game {
 
     TweenMax.to(gem.rotation, speed, {
       x: Math.random() * 12,
-      y: Math.random() * 12
+      y: Math.random() * 12,
     });
 
     TweenMax.to(gem.scale, speed, {
       x: 0.1,
       y: 0.1,
-      z: 0.1
+      z: 0.1,
     });
 
     TweenMax.to(gem.position, speed, {
@@ -316,7 +316,7 @@ export default class Game {
       onComplete() {
         if (typeof callback !== "function") return;
         callback.call();
-      }
+      },
     });
   }
 
@@ -344,7 +344,7 @@ export default class Game {
 
     const intersects = raycaster.intersectObjects(this.gems.children);
 
-    intersects.forEach(gem => {
+    intersects.forEach((gem) => {
       this.explode(gem.object, colors.red, 1, () => {
         this.score += 1;
         this.gems.remove(gem.object);
